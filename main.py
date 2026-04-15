@@ -17,8 +17,8 @@ async def split_image(file: UploadFile):
     img = Image.open(io.BytesIO(contents))
 
     width, height = img.size
-    cols = 4
-    rows = 2
+    cols = 6
+    rows = 4
     overlap = 0.10
 
     tile_w = width // cols
