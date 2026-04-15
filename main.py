@@ -17,16 +17,17 @@ async def split_image(file: UploadFile):
     img = Image.open(io.BytesIO(contents))
 
     width, height = img.size
-    grid = 2
+    cols = 4
+    rows = 2
     overlap = 0.10
 
-    tile_w = width // grid
-    tile_h = height // grid
+    tile_w = width // cols
+    tile_h = height // rows
 
     tiles = []
 
-    for y in range(grid):
-        for x in range(grid):
+    for y in range(rows):
+        for x in range(cols):
             left = int(x * tile_w * (1 - overlap))
             top = int(y * tile_h * (1 - overlap))
             right = left + tile_w
